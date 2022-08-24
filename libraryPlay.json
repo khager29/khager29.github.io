@@ -1,0 +1,6 @@
+{"generalKenobi": {"arguments":["arg=\"hello there\""],
+                 "functionDefinition":"console.log(arg)"
+},
+"admiralAckbar": {"arguments":["arg=\"trap\""],
+                 "functionDefinition":"console.log(\"it's a \"+arg)"
+}}
