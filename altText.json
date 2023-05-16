@@ -43,7 +43,11 @@
         "Q3MaxText": "This point is at its minimum x and y value.",
         "Q4MaxText": "This point is at its maximum x value and minimum y value.",
         "xMinText": "This point is at its minimum x value.",
-        "yMaxText": "This point is at its maximum y value."
+        "yMaxText": "This point is at its maximum y value.",
+        "xIconCaptionText": "Close.",
+        "instructionsIconCaptionText": "Instructions. Press space to open the instructions.",
+        "ECaptionText": "Ash",
+        "DCaptionText": "Oak",
     },
     "spanish": {
         "SPoint7Label": "Fuente",
@@ -89,6 +93,10 @@
         "Q3MaxText": "Este punto está en su valor mínimo x e y.",
         "Q4MaxText": "Este punto está en su valor máximo de x y su valor mínimo de y.",
         "xMinText": "Este punto está en su valor mínimo de x.",
-        "yMaxText": "Este punto está en su valor y máximo."
+        "yMaxText": "Este punto está en su valor y máximo.",
+        "xIconCaptionText": "Cierre.",
+        "instructionsIconCaptionText": "Instrucciones. Presiona espacio para abrir las instrucciones.",
+        "ECaptionText": "Fresno",
+        "DCaptionText": "Roble",
     }
 }
