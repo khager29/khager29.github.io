@@ -47,8 +47,8 @@
         "xIconCaptionText": "Close.",
         "instructionsIconCaptionText": "Instructions. Press space to open the instructions.",
         "ECaptionText": "Ash",
-        "DCaptionText": "Oak",
-    },
+        "DCaptionText": "Oak"
+},
     "spanish": {
         "SPoint7Label": "Fuente",
         "SPoint6Label": "Estatua",
@@ -97,6 +97,6 @@
         "xIconCaptionText": "Cierre.",
         "instructionsIconCaptionText": "Instrucciones. Presiona espacio para abrir las instrucciones.",
         "ECaptionText": "Fresno",
-        "DCaptionText": "Roble",
+        "DCaptionText": "Roble"
     }
 }
