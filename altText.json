@@ -1,0 +1,52 @@
+  const altText = {
+            english: {
+                ariaLabelforGGB: "Tape Diagram Interactive",
+                xIconCaptionText: "Close.",
+                instructionsIconCaptionText: "Instructions. Press space to open the instructions.",
+                ACaptionText: "$ \\textcolor{black} %n $",
+                BCaptionText: "$ \\textcolor{black} %n $",
+                labelB: "Number of Pennies in Jar B",
+                labelA: "Number of Pennies in Jar A",
+                AAppletStatus:
+                    '"A tape diagram with 2 tapes that have equal size units. The tape labeled Number of Pennies in Jar A has " + (x(A)) + " " + (If(x(A) ≟ 1, "unit", "units")) + ". The tape labeled Number of Pennies in Jar B has " + (x(B)) + " " + (If(x(B) ≟ 1, "unit", "units")) + ". " + (If(flag, "Press the escape key to exit the interactive and return to the page.", "")) + "Press space to read the prompt again."',
+                statusA: '"Tape A has " + (x(A)) + " " + (If(x(A) ≟ 1, "unit", "units")) + ". "',
+                statusB: '"Tape B has " + (x(B)) + " " + (If(x(B) ≟ 1, "unit", "units")) + "."',
+                escText: '"" + (If(escTextCount < 2, "Press the escape key to exit the interactive and return to the page.", ""))',
+                defaultGGBLanguage: "English",
+                instructionsText:
+                    'Text("\\text{Change the tape diagrams by moving the points. \\\\\\\\Press k to " + (If(showKeyboardInstructions, "hide", "show")) + " keyboard instructions. }", (0, 0), false, true)',
+                keyboardInstructions: "Keyboard instructions enabled",
+                displayedInstructionsText: "Text(instructionsText, InsTextTL + 3(xpixel, -0.1 ypixel), true, true)",
+                intermediateKeyboardInstructions: 'Text("\\text{" + keyboardInstructions + "}", (0, 0), true, true)',
+                displayedKeyboardInstructions: "Text(intermediateKeyboardInstructions, corner2 + keyInstructionsVec + (2xpixel, -2 ypixel), true, true)",
+                keybindText:
+                    '"\\\\ \\\\Press k to " + (If(showKeyboardInstructions, "hide", "show")) + " keyboard instructions." + (If(false, "\\\\ \\\\Press x to restart the tab cycle.", ""))',
+                promptText:
+                    "\\text{The tape diagram represents the ratio of the number of pennies in jar A to the number of pennies in jar B. \\\\ A tape diagram with 2 tapes that have equal size units. The tape labeled Number of Pennies in Jar A has 4 units. The tape labeled Number of Pennies in Jar B has 3 units. \\\\ Eddie moves one fourth of the pennies in jar A to jar B.  Move A and B to create a tape diagram that represents the new ratio of the number of pennies in jar A to the number of pennies in jar B.\\\\ Press tab to select next object.}",
+            },
+            spanish: {
+                ariaLabelforGGB: "Diagrama de cinta interactivo",
+                xIconCaptionText: "Cerrar.",
+                instructionsIconCaptionText: "Instrucciones. Presiona espacio para abrir las instrucciones.",
+                ACaptionText: "$\\textcolor{black} %n$",
+                BCaptionText: "$\\textcolor{black} %n$",
+                labelB: "Número de centavos en el frasco B",
+                labelA: "Número de centavos en el frasco A",
+                AAppletStatus:
+                    '"Un diagrama de cinta con 2 cintas que tienen unidades del mismo tamaño. La cinta etiquetada Número de centavos en el frasco A tiene " + (x(A)) + " " + (If(x(A) ≟ 1, "unidad", "unidades")) + ". La cinta etiquetada Número de centavos en el frasco B tiene " + (x(B)) + " " + (If(x(B) ≟ 1, "unidad", "unidades")) + ". " + (If(flag, "Presione la tecla escape para salir del interactivo y regresar a la página.", "")) + "Presione la barra espaciadora para leer el aviso nuevamente."',
+                statusA: '"La cinta A tiene " + (x(A)) + " " + (If(x(A) ≟ 1, "unidad", "unidades")) + ". "',
+                statusB: '"La cinta B tiene " + (x(B)) + " " + (If(x(B) ≟ 1, "unidad", "unidades")) + "."',
+                escText: '"" + (If(escTextCount < 2, "Presione la tecla escape para salir del interactivo y regresar a la página.", ""))',
+                defaultGGBLanguage: "Inglés",
+                instructionsText:
+                    'Text("\\text{Cambia los diagramas de cinta moviendo los puntos. \\\\\\\\Presiona k para " + (If(showKeyboardInstructions, "hide", "show ")) + " instrucciones de teclado. }", (0, 0), false, true)',
+                keyboardInstructions: "Instrucciones de teclado habilitadas",
+                displayedInstructionsText: "Text(instructionsText, InsTextTL + 3(xpixel, -0.1 ypixel), true, true)",
+                intermediateKeyboardInstructions: 'Text("\\text{" + keyboardInstructions + "}", (0, 0), true, true)',
+                displayedKeyboardInstructions: "Text(intermediateKeyboardInstructions, corner2 + keyInstructionsVec + (2xpixel, -2 ypixel), true, true)",
+                keybindText:
+                    '"\\\\ \\\\Presione k para " + (If(showKeyboardInstructions, "hide", "show")) + " instrucciones del teclado." + (If(false, "\\\\ \\\\Presiona x para reiniciar el ciclo de pestañas.", ""))',
+                promptText:
+                    "\\text{El diagrama de cintas representa la relación entre la cantidad de centavos en el frasco A y la cantidad de centavos en el frasco B. \\\\ Un diagrama de cintas con 2 cintas que tienen unidades de igual tamaño. la cinta con el número de centavos en el frasco A tiene 4 unidades. La cinta con el número de centavos en el frasco B tiene 3 unidades. \\\\ Eddie mueve una cuarta parte de los centavos del frasco A al frasco B. Mueve A y B al crea un diagrama de cinta que represente la nueva proporción entre la cantidad de centavos en el frasco A y la cantidad de centavos en el frasco B.\\\\ Presiona tab para seleccionar el siguiente objeto.}",
+            },
+        };
