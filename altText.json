@@ -1,4 +1,4 @@
-  const altText = {
+{
             english: {
                 ariaLabelforGGB: "Tape Diagram Interactive",
                 xIconCaptionText: "Close.",
