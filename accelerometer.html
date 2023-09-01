@@ -3,13 +3,13 @@
     <head>
         <script>
             const textDisplay1 = document.querySelector("p");
-
               let accelerometer = null;
               try {
                 const acl = new Accelerometer({
                   referenceFrame: "device",
                   frequency: 60,
                 });
+                if(typeof acl !== null){
                   accelerometer.addEventListener("error", (event) => {
                     // Handle runtime errors.
                     if (event.error.name === "NotAllowedError") {
@@ -24,7 +24,7 @@
                     textDisplay1.innerText = `Acceleration along the Z-axis ${acl.z}`;
                   });
                   accelerometer.start();
-
+                }
               } catch (error) {
                 // Handle construction errors.
                 if (error.name === "SecurityError") {
