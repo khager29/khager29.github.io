@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
+    </head>
     <body>
         <h2>Accelerometer Work</h2>
         <p>This text will be updated.</p>
@@ -23,9 +27,9 @@
                     }
                   });
                   acl.addEventListener("reading", () => {
-                    textDisplay1.innerHTML = `<p>Acceleration along the X-axis ${acl.x}</p>
-                    <p>Acceleration along the Y-axis ${acl.y}</p>
-                    <p>Acceleration along the Z-axis ${acl.z}</p>`;
+                    textDisplay1.innerHTML = `<p>Acceleration along the X-axis ${Math.round(100*acl.x)/100}</p>
+                    <p>Acceleration along the Y-axis ${Math.round(100*acl.y)/100}</p>
+                    <p>Acceleration along the Z-axis ${Math.round(100*acl.z)/100}</p>`;
                   });
                   acl.start();
                 }
