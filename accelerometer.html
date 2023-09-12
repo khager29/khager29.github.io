@@ -23,9 +23,9 @@
                     }
                   });
                   acl.addEventListener("reading", () => {
-                    textDisplay1.innerText = `Acceleration along the X-axis ${acl.x}`;
-                    textDisplay1.innerText = `Acceleration along the Y-axis ${acl.y}`;
-                    textDisplay1.innerText = `Acceleration along the Z-axis ${acl.z}`;
+                    textDisplay1.innerHTML = `<p>Acceleration along the X-axis ${acl.x}</p>`;
+                    `<p>Acceleration along the Y-axis ${acl.y}</p>`;
+                    `<p>Acceleration along the Z-axis ${acl.z}</p>`;
                   });
                   acl.start();
                 }
