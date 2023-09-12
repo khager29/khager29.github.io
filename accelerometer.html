@@ -8,15 +8,16 @@
     <body>
         <h2>Accelerometer Work</h2>
         <p id="textDisplay1">This text will be updated.</p>
-        <div id="box">
+        <div id="box" width="300px" height="300px">
             <div
-                id="circle"
+                id="ball"
                 width="10px"
                 height="10px"
                 style="border-radius:50%;background-color: blue"></div>
         </div>
         <script>
             const textDisplay1 = document.querySelector("#textDisplay1");
+            const ball = document.querySelector("#ball");
               let accelerometer = null;
               try {
                 const acl = new Accelerometer({
@@ -34,6 +35,7 @@
                     }
                   });
                   acl.addEventListener("reading", () => {
+                    ball.style=`border-radius:50%;background-color: blue;transform:translate(${acl.x+150},${acl.y+150})`;
                     textDisplay1.innerHTML = `<p>Acceleration along the X-axis ${Math.round(100*acl.x)/100}</p>
                     <p>Acceleration along the Y-axis ${Math.round(100*acl.y)/100}</p>
                     <p>Acceleration along the Z-axis ${Math.round(100*acl.z)/100}</p>`;
