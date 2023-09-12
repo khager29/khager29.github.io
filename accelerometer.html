@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head> </head>
+    <head></head>
     <body>
         <h2>Accelerometer Work</h2>
         <p>This text will be updated.</p>
@@ -12,6 +12,7 @@
                   referenceFrame: "device",
                   frequency: 60,
                 });
+                console.log(acl);
                 if(typeof acl !== null){
                   accelerometer.addEventListener("error", (event) => {
                     // Handle runtime errors.
