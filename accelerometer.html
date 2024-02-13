@@ -40,7 +40,7 @@
                     }
                   });
                   acl.addEventListener("reading", () => {
-                    ball.style=`width:20px;height:20px;border-radius:50%;background-color: blue;transform:translate(${-10*acl.x+150}px,${-10*acl.y+150}px);`;
+                    ball.style=`width:20px;height:20px;border-radius:50%;background-color: blue;transform:translate(${-10*acl.x+150}px,${10*acl.y+150}px);`;
                     textDisplay1.innerHTML = `<p>Acceleration along the X-axis ${Math.round(100*acl.x)/100}</p>
                     <p>Acceleration along the Y-axis ${Math.round(100*acl.y)/100}</p>
                     <p>Acceleration along the Z-axis ${Math.round(100*acl.z)/100}</p>`;
