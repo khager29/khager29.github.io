@@ -1,0 +1,14 @@
+{
+    "Alameda": {
+        "population": 50000,
+        "lat": 37.765205,
+        "long": -122.241638,
+        "type": "lighthouse"
+    },
+    "San Diego USD": {
+        "population": 150000,
+        "lat": 32.715736,
+        "long": -117.161087,
+        "type": "both"
+    }
+}
