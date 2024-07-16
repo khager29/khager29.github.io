@@ -1,14 +1,27 @@
 {
     "Alameda": {
-        "population": 50000,
+        "population": 10359,
         "lat": 37.765205,
         "long": -122.241638,
-        "type": "lighthouse"
+        "type": "titleI"
+    },
+    "Child": {
+        "population": 8359,
+        "lat": 37.7258,
+        "long": -122.1569,
+        "type": "titleI",
+        "parentDistrict": "Alameda"
     },
     "San Diego USD": {
-        "population": 150000,
+        "population": 112790,
         "lat": 32.715736,
         "long": -117.161087,
         "type": "both"
+    },
+    "Chula Vista": {
+        "population": 28952,
+        "lat": 32.6146,
+        "long": -116.9617,
+        "type": "lighthouse"
     }
 }
