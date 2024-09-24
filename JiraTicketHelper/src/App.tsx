@@ -1,7 +1,7 @@
 import { useState } from "react";
-import EnabledCheckbox from "./EnabledCheckbox";
-import Checkbox from "./Checkbox";
-import Input from "./Input";
+import EnabledCheckbox from "./EnabledCheckbox.tsx";
+import Checkbox from "./Checkbox.tsx";
+import Input from "./Input.tsx";
 import markdownContent from "./markdownContent.ts";
 
 const JiraTicketHelper = () => {
