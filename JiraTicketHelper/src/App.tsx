@@ -170,11 +170,7 @@ const JiraTicketHelper = () => {
                     handleChange={(e) => setDropdowns(Number(e.target.value))}
                 />
                 <DropdownOptions
-                    className={
-                        variant
-                            ? "hidden"
-                            : "parent-only"
-                    }
+                    className={variant ? "hidden" : "parent-only"}
                     numberDropdowns={dropdowns}
                     handleChange={(e) => {
                         const inputNum: string = e.target?.id.replace(
@@ -204,10 +200,12 @@ const JiraTicketHelper = () => {
                     value={tabOrder}
                     handleChange={(e) => setTabOrder(e.target.value)}
                 />
-                <button onClick={handleGenerateMarkdown}>
-                    Generate and Copy Markdown
-                </button>
-                <button onClick={handleClearForm}>Clear Form</button>
+                <div id="button-set">
+                    <button onClick={handleGenerateMarkdown}>
+                        Generate and Copy Markdown
+                    </button>
+                    <button onClick={handleClearForm}>Clear Form</button>
+                </div>
                 <pre>{preview}</pre>
             </main>
         </>
