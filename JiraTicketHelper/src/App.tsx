@@ -170,12 +170,13 @@ const JiraTicketHelper = () => {
                     handleChange={(e) => setDropdowns(Number(e.target.value))}
                 />
                 <DropdownOptions
-                    className={variant ? "hidden" : "parent-only"}
+                    className={
+                        variant
+                            ? "hidden"
+                            : "parent-only"
+                    }
                     numberDropdowns={dropdowns}
                     handleChange={(e) => {
-                        console.log(e);
-                        // get target ID, get num, then get value
-                        console.log(e.target?.id.replace(/\D/g, ""));
                         const inputNum: string = e.target?.id.replace(
                             /\D/g,
                             ""

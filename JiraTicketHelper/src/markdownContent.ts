@@ -157,7 +157,7 @@ ${
 }
 ${
     (buttons >= 1 && inputs <= 0) || (buttons >= 2 && inputs >= 1)
-        ? `## Scenario __ - Press Button: __
+        ? `### Scenario __ - Press Button: __
 **When** the user presses the __ button
 **Then** __`
         : ``

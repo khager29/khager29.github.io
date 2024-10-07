@@ -21,11 +21,12 @@ const DropdownOptions = ({
                 id={`optionNumInput${index + 1}`}
                 key={`optionNum${index + 1}`}
                 type="number"
+                className="small-inputs"
                 onChange={handleChange}
             />
         </label>
     ));
-    return <div>{dropDownOptions}</div>;
+    return <div className="option-container">{dropDownOptions}</div>;
 };
 
 export default DropdownOptions;
