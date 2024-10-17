@@ -90,6 +90,8 @@ th,
 td {
     border: 1px black solid;
     padding: 5px;
+    min-width: 40px;
+    justify-content: center;
 }
 
 figure {

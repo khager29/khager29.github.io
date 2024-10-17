@@ -1,5 +1,7 @@
 const ggbContainer = document.querySelector("#ggb-element");
 const submitButton = document.querySelector("#submit");
+const addButton = document.querySelector("#add");
+const removeButton = document.querySelector("#remove");
 const params = {
     // eslint-disable-next-line camelcase
     material_id: "wqprnejw",
@@ -18,7 +20,25 @@ const params = {
 const applet = new GGBApplet(params, true);
 applet.inject("ggb-element");
 
+addButton.addEventListener("click", () => {
+    const newRow = document.createElement("tr");
+    const rowGuts = `<td><input type="number" required /></td><td><input type="number" required /></td>`;
+    newRow.innerHTML = rowGuts;
+    document.querySelector("tbody").appendChild(newRow);
+});
+
+removeButton.addEventListener("click", () => {
+    const tableBody = document.querySelector("tbody");
+    console.log(tableBody);
+    const lastChild = tableBody.lastChild;
+    console.log(lastChild);
+    tableBody.removeChild(lastChild);
+});
+
 submitButton.addEventListener("click", () => {
+    ggb1.getAllObjectNames("point").forEach((objName) => {
+        ggb1.deleteObject(objName);
+    });
     const inputList = document.querySelectorAll("input");
     inputList.forEach((item, index) => {
         if (
