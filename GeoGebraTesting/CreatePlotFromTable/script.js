@@ -2,6 +2,7 @@ const ggbContainer = document.querySelector("#ggb-element");
 const submitButton = document.querySelector("#submit");
 const addButton = document.querySelector("#add");
 const removeButton = document.querySelector("#remove");
+const tableBody = document.querySelector("tbody");
 const params = {
     // eslint-disable-next-line camelcase
     material_id: "wqprnejw",
@@ -28,9 +29,9 @@ addButton.addEventListener("click", () => {
 });
 
 removeButton.addEventListener("click", () => {
-    const tableBody = document.querySelector("tbody");
-    const lastChild = tableBody.lastChild;
-    if (tableBody.childElementCount >= 2) {
+    const lastChild = tableBody.lastElementChild;
+    const childCount = tableBody.childElementCount;
+    if (childCount >= 3) {
         tableBody.removeChild(lastChild);
     }
 });
