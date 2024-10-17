@@ -29,10 +29,10 @@ addButton.addEventListener("click", () => {
 
 removeButton.addEventListener("click", () => {
     const tableBody = document.querySelector("tbody");
-    console.log(tableBody);
     const lastChild = tableBody.lastChild;
-    console.log(lastChild);
-    tableBody.removeChild(lastChild);
+    if (tableBody.childElementCount >= 2) {
+        tableBody.removeChild(lastChild);
+    }
 });
 
 submitButton.addEventListener("click", () => {
