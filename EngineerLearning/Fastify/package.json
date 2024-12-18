@@ -1,0 +1,19 @@
+{
+    "name": "fastify",
+    "version": "1.0.0",
+    "description": "Fastify testing",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "start": "tsc && node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "khager29.github.io"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^22.10.2"
+    }
+}
