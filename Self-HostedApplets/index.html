@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta charset="utf-8" />
+        <script src="https://cdn.digital.greatminds.org/did-utils/latest/index.js"></script>
+        <script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
+    </head>
+    <body>
+        <label>
+            Paste Base64 String:
+            <textarea type="text" id="string"></textarea>
+        </label>
+        <p>OR</p>
+        <label>
+            GeoGebra Filename as found in Github
+            <input type="text" id="filename" />
+        </label>
+        <p>and Press Submit</p>
+        <button id="submit">Submit</button>
+        <div id="ggbApplet"></div>
+        <p id="error"></p>
+        <script src="script.js"></script>
+    </body>
+</html>
