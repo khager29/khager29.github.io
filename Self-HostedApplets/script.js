@@ -5,11 +5,19 @@ const errorParagraph = document.querySelector("#error");
 
 submitButton.addEventListener("click", async () => {
     // change this from hardcoded string to textarea input to fetch or whatever
+
+    // TODO: fix this
     let fetchedString = "";
     const filename = input.value.replace(".ggb", "");
     fetch("../env.txt")
         .then((res) => {
-            const text = res.text();
+            let text;
+            console.log(res);
+            if (res.status === 200) {
+                text = res.text();
+            } else {
+                text = prompt("Enter your Github PAT here.");
+            }
             return text;
         })
         .then((data) => {
