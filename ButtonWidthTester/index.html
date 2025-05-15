@@ -1,135 +1,137 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Button Width Tester</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
-    <script>
-      var params = {
-        material_id: "fnka3jx8",
-        enableRightClick: false,
-        enableShiftDragZoom: false,
-        useBrowserForJS: true,
-        showToolBar: false,
-        language: "en",
-        appletOnLoad: (ggbApplet) => {
-          const widthObject = {
-            A: 7,
-            a: 5,
-            B: 8,
-            b: 6,
-            C: 8,
-            c: 5,
-            D: 8,
-            d: 6,
-            E: 7,
-            e: 5,
-            F: 6,
-            f: 1,
-            G: 8,
-            g: 6,
-            H: 8,
-            h: 6,
-            I: 0,
-            i: 0,
-            J: 5,
-            j: 0,
-            K: 8,
-            k: 5,
-            L: 6,
-            l: 0,
-            M: 9,
-            m: 10,
-            N: 8,
-            n: 6,
-            O: 8,
-            o: 6,
-            P: 7,
-            p: 6,
-            Q: 8,
-            q: 6,
-            R: 8,
-            r: 2,
-            S: 7,
-            s: 5,
-            T: 6,
-            t: 1,
-            U: 8,
-            u: 6,
-            V: 7,
-            v: 5,
-            W: 11,
-            w: 9,
-            X: 7,
-            x: 5,
-            Y: 6,
-            y: 5,
-            Z: 5,
-            z: 5,
-          };
-          const url = "./Alice.txt";
-          fetch(url)
-            .then((res) => {
-              console.log(res);
-              return res.text();
-            })
-            .then((data) => data.replace(/\r\n/g, " ").split(" "))
-            .then((words) => {
-              const discrepancies = [];
-              const { invXscale } = JSON.parse(ggbApplet.getViewProperties());
-              let index = 0;
-              console.log("totalWords:", words.length);
-              function processWord() {
-                // if (index >= words.length || index > 10) return;
-                const word = words[index].replace(/[^A-Za-z\s*]/g, "");
-                ggbApplet.setCaption("ggbButton1", word);
-
-                const waitForIt = setInterval(() => {
-                  if (ggbApplet.getCaption("ggbButton1") === word) {
-                    clearInterval(waitForIt);
-
-                    const realWidth =
-                      ggbApplet.getValue(
-                        "x(Corner(ggbButton1,3))-x(Corner(ggbButton1,1))"
-                      ) / invXscale;
-
-                    let calculatedWidth = 0;
-                    for (const char of word) {
-                      calculatedWidth += widthObject[char] ?? 0;
-                    }
-                    calculatedWidth += 4 * (word.length - 1);
-                    calculatedWidth += 24;
-
-                    if (Math.round(realWidth) !== calculatedWidth) {
-                      const difference = realWidth - calculatedWidth;
-                      discrepancies.push({
-                        word,
-                        realWidth,
-                        calculatedWidth,
-                        difference,
-                      });
-                    }
-
-                    index++;
-                    setTimeout(processWord, 0); // Continue to next word after this one finishes
-                  }
-                }, 200); // Shorter interval to reduce delay
-                window.discrepancies = discrepancies;
-              }
-
-              processWord();
+    <head>
+        <meta charset="UTF-8" />
+        <title>Button Width Tester</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+        <script>
+            var params = {
+                material_id: "fnka3jx8",
+                enableRightClick: false,
+                enableShiftDragZoom: false,
+                useBrowserForJS: true,
+                showToolBar: false,
+                language: "en",
+                appletOnLoad: (ggbApplet) => {
+                    const widthObject = {
+                        A: 7,
+                        a: 5,
+                        B: 8,
+                        b: 6,
+                        C: 8,
+                        c: 5,
+                        D: 8,
+                        d: 6,
+                        E: 7,
+                        e: 5,
+                        F: 6,
+                        f: 1,
+                        G: 8,
+                        g: 6,
+                        H: 8,
+                        h: 6,
+                        I: 0,
+                        i: 0,
+                        J: 5,
+                        j: 0,
+                        K: 8,
+                        k: 5,
+                        L: 6,
+                        l: 0,
+                        M: 9,
+                        m: 10,
+                        N: 8,
+                        n: 6,
+                        O: 8,
+                        o: 6,
+                        P: 7,
+                        p: 6,
+                        Q: 8,
+                        q: 6,
+                        R: 8,
+                        r: 2,
+                        S: 7,
+                        s: 5,
+                        T: 6,
+                        t: 1,
+                        U: 8,
+                        u: 6,
+                        V: 7,
+                        v: 5,
+                        W: 11,
+                        w: 9,
+                        X: 7,
+                        x: 5,
+                        Y: 6,
+                        y: 5,
+                        Z: 5,
+                        z: 5,
+                    };
+                    const url = "./Alice.txt";
+                    fetch(url)
+                        .then((res) => {
+                            console.log(res);
+                            return res.text();
+                        })
+                        .then((data) => data.replace(/\r\n/g, " ").split(" "))
+                        .then((words) => {
+                            const discrepancies = [];
+                            const differences = [];
+                            const { invXscale } = JSON.parse(ggbApplet.getViewProperties());
+                            let index = 0;
+                            function processWord() {
+                                if (index >= words.length) {
+                                    alert(`${discrepancies.length} out of ${
+                                        words.length
+                                    } had incorrect word calculations for ${Math.round((100 * (words.length - discrepancies.length)) / words.length)}% accuracy`);
+                                     console.log(differences)
+                                     return;
+                                }
+                                const word = words[index].replace(/[^A-Za-z\s*]/g, "");
+                                ggbApplet.setCaption("ggbButton1", word);
+                                const waitForIt = setInterval(() => {
+                                    if (ggbApplet.getCaption("ggbButton1") === word) {
+                                        clearInterval(waitForIt);
+                                        const realWidth =
+                                            ggbApplet.getValue(
+                                                "x(Corner(ggbButton1,3))-x(Corner(ggbButton1,1))"
+                                            ) / invXscale;
+                                        let calculatedWidth = 0;
+                                        for (const char of word) {
+                                            calculatedWidth += widthObject[char] ?? 0;
+                                        }
+                                        calculatedWidth += 4 * (word.length - 1);
+                                        calculatedWidth += 24;
+                                        if (Math.round(realWidth) !== calculatedWidth) {
+                                            const difference = Math.round(realWidth) - calculatedWidth;
+                                            discrepancies.push({
+                                                word,
+                                                realWidth,
+                                                calculatedWidth,
+                                                difference,
+                                            });
+                                            differences.push(difference);
+                                        }
+                                        index++;
+                                        setTimeout(processWord, 0);
+                                    }
+                                }, 200);
+                                window.discrepancies = discrepancies;
+                                window.differences = differences;
+                            }
+                            processWord();
+                        });
+                },
+            };
+            var applet = new GGBApplet(params, true);
+            window.addEventListener("load", function () {
+                applet.inject("ggb-element");
             });
-        },
-      };
-      var applet = new GGBApplet(params, true);
-      window.addEventListener("load", function () {
-        applet.inject("ggb-element");
-      });
-    </script>
-    <title>GGB Sandbox</title>
-  </head>
-  <body>
-    <div id="ggb-element"></div>
-  </body>
+        </script>
+        <title>GGB Sandbox</title>
+    </head>
+    <body>
+        <div id="ggb-element"></div>
+    </body>
 </html>
