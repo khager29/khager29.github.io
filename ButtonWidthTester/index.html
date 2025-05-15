@@ -77,6 +77,7 @@
                         .then((data) => data.replace(/\r\n/g, " ").split(" "))
                         .then((words) => {
                             const discrepancies = [];
+                            const differences = [];
                             const { invXscale } = JSON.parse(ggbApplet.getViewProperties());
                             let index = 0;
                             function processWord() {
@@ -84,6 +85,7 @@
                                     alert(`${discrepancies.length} out of ${
                                         words.length
                                     } had incorrect word calculations for ${Math.round((100 * (words.length - discrepancies.length)) / words.length)}% accuracy`);
+                                     console.log(differences)
                                      return;
                                 }
                                 const word = words[index].replace(/[^A-Za-z\s*]/g, "");
@@ -109,12 +111,14 @@
                                                 calculatedWidth,
                                                 difference,
                                             });
+                                            differences.push(difference);
                                         }
                                         index++;
                                         setTimeout(processWord, 0);
                                     }
                                 }, 200);
                                 window.discrepancies = discrepancies;
+                                window.differences = differences;
                             }
                             processWord();
                         });
