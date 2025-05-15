@@ -104,7 +104,7 @@
                                         calculatedWidth += 4 * (word.length - 1);
                                         calculatedWidth += 24;
                                         if (Math.round(realWidth) !== calculatedWidth) {
-                                            const difference = realWidth - calculatedWidth;
+                                            const difference = Math.round(realWidth) - calculatedWidth;
                                             discrepancies.push({
                                                 word,
                                                 realWidth,
