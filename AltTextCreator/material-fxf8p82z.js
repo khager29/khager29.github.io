@@ -33,12 +33,23 @@ function ggbOnInit(name, ggbObject) {
                         }
                         case "setTextValue": {
                             const [id, text] = args;
-                            log.push(`${id} now reads ${text}`);
-                            console.log(`${id} now reads ${text}`);
+                            log.push(
+                                `${id} now reads "${text
+                                    .replace(/\\text{/g, "")
+                                    .replace(/\\/g, "")}"`
+                            );
+                            console.log(
+                                `${id} now reads "${text
+                                    .replace(/\\text{(.*)}/g, "$1")
+                                    .replace(/\\/g, "")}"`
+                            );
                             break;
                         }
                         default:
-                            if (!prop.includes("get")) {
+                            if (
+                                !prop.includes("get") &&
+                                !prop.includes("register")
+                            ) {
                                 log.push(
                                     `Called ${prop} with arguments: ${args}.`
                                 );
