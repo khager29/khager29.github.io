@@ -71,7 +71,6 @@
                     const url = "./Alice.txt";
                     fetch(url)
                         .then((res) => {
-                            console.log(res);
                             return res.text();
                         })
                         .then((data) => data.replace(/\r\n/g, " ").split(" "))
@@ -80,15 +79,18 @@
                             const differences = [];
                             const { invXscale } = JSON.parse(ggbApplet.getViewProperties());
                             let index = 0;
+                            console.log(words);
+                           const cleanWords =  words.filter(word=>word!=="")
                             function processWord() {
-                                if (index >= words.length) {
+                                if (index >= cleanWords.length) {
                                     alert(`${discrepancies.length} out of ${
-                                        words.length
-                                    } had incorrect word calculations for ${Math.round((100 * (words.length - discrepancies.length)) / words.length)}% accuracy`);
+                                        cleanWords.length
+                                    } had incorrect word calculations for ${Math.round((100 * (cleanWords.length - discrepancies.length)) / cleanWords.length)}% accuracy. ${differences.filter((difference)=>Math.round(difference*difference)>1).length} of the differences were more than one pixel off`);
                                      console.log(differences)
                                      return;
                                 }
-                                const word = words[index].replace(/[^A-Za-z\s*]/g, "");
+                                const word = cleanWords[index].replace(/[^A-Za-z\s*]/g, "");
+                                console.log(word)
                                 ggbApplet.setCaption("ggbButton1", word);
                                 const waitForIt = setInterval(() => {
                                     if (ggbApplet.getCaption("ggbButton1") === word) {
