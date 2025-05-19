@@ -103,6 +103,7 @@ function ggbOnInit(name, ggbObject) {
         window.ggbAltLog = getLog;
 
         const ggbcanvas = getCanvas();
+        const ggbObject = ggbWithLogging;
 
         /*
          * IGNORE above
