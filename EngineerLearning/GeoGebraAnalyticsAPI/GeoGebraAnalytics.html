@@ -1,40 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Welcome to Our GeoGebra Analytics Database!</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
-    <script src="grabber.js"></script>
-    <script>
-      var params = {
-        width: 700,
-        height: 640,
-        material_id: "grqabgaq",
-        enableRightClick: false,
-        enableShiftDragZoom: false,
-        showToolBar: false,
-        language: "en",
-        useBrowserForJS: true,
-      };
-      var applet = new GGBApplet(params, true);
-      window.addEventListener("load", function () {
-        applet.inject("ggb-element");
-      });
-    </script>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Welcome to Our GeoGebra Analytics Database!</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+        <script>
+            var params = {
+              width: 700,
+              height: 640,
+              material_id: "grqabgaq",
+              enableRightClick: false,
+              enableShiftDragZoom: false,
+              showToolBar: false,
+              language: "en",
+              useBrowserForJS: true,
+            };
+            var applet = new GGBApplet(params, true);
+            window.addEventListener("load", function () {
+              applet.inject("ggb-element");
+            });
+        </script>
+    </head>
 
-  <body>
-    <a href="#maincontent" class="skip-to-main-content-link">
-      Skip to main content
-    </a>
-    <header>
-      <h1>Welcome to Our GeoGebra Analytics Database!</h1>
-    </header>
-    <main>
-      <p>One day I'll add a loader here based on matID.</p>
-      <div id="ggb-element"></div>
-    </main>
-    <script src="script.js"></script>
-  </body>
+    <body>
+        <a href="#maincontent" class="skip-to-main-content-link">
+            Skip to main content
+        </a>
+        <header>
+            <h1>Welcome to Our GeoGebra Analytics Database!</h1>
+        </header>
+        <main>
+            <p>One day I'll add a loader here based on matID.</p>
+            <div id="ggb-element"></div>
+        </main>
+        <script src="script.js"></script>
+    </body>
 </html>
+
