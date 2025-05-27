@@ -1,5 +1,6 @@
 function makeGetGGBAnalytics({ name, ggbObject, getCanvas }) {
     return function () {
+        const startTime = new Date.now();
         const analyticsData = {
             materialID: "grqabgaq",
             usedKeyboardInstructions: false,
@@ -7,15 +8,13 @@ function makeGetGGBAnalytics({ name, ggbObject, getCanvas }) {
             openedInstructions: false,
             pressedButtons: "",
             mouseUsed: false,
-            timeStart: Date.now(),
+            timeStart: startTime.toUTCString(),
             timeInApplet: 0,
         };
 
         const ggbCanvas = getCanvas(name);
         document.addEventListener("visibilitychange", () => {
             if (document.visibilityState === "hidden") {
-                analyticsData.timeInApplet =
-                    (Date.now() - analyticsData.timeStart) / 1000;
                 passData();
             }
         });
@@ -31,6 +30,8 @@ function makeGetGGBAnalytics({ name, ggbObject, getCanvas }) {
         ggbObject.registerClickListener(clickListenerFunction);
 
         function passData() {
+            analyticsData.timeInApplet =
+                (Date.now() - analyticsData.timeStart) / 1000;
             console.log("started data push");
             fetch("http://localhost:4200/logData", {
                 method: "POST",
