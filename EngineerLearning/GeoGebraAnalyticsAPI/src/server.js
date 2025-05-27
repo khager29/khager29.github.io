@@ -1,6 +1,6 @@
 import Fastify from "fastify";
-import dbConnector from "./src/connector.js";
-import { routes } from "./route.js";
+import dbConnector from "./connector.js";
+import { routes } from "../route.js";
 const server = Fastify({ logger: true });
 server.register(dbConnector);
 server.register(routes);
@@ -10,10 +10,10 @@ const start = async () => {
         const address = server.server.address();
         const port = typeof address === "string" ? address : address?.port;
         console.log(`Server listening on ${port}`);
-    } catch (err) {
+    }
+    catch (err) {
         server.log.error(err);
         process.exit(1);
     }
 };
 start();
-

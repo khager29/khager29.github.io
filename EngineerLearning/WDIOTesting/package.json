@@ -1,5 +1,5 @@
 {
-  "name": "WDIOTesting",
+  "name": "wdiotesting",
   "type": "module",
   "devDependencies": {
     "@wdio/cli": "^9.13.0",

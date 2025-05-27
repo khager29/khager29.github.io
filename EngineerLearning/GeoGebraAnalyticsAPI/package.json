@@ -1,26 +1,31 @@
 {
-  "name": "ggbanalytics",
-  "version": "1.1.0",
-  "description": "Trying to figure out how to gather data on GeoGebra interactions",
-  "main": "index.js",
-  "scripts": {
-    "start": "fastify start server.js"
-  },
-  "author": "Kim Hager",
-  "license": "ISC",
-  "dependencies": {
-    "@fastify/mongodb": "^9.0.2",
-    "body-parser": "^1.20.3",
-    "cors": "^2.8.5",
-    "express": "^4.21.2",
-    "fastify-plugin": "^5.0.1",
-    "mongoose": "^8.9.2",
-    "nodemon": "^3.1.9"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.26.4",
-    "@babel/core": "^7.26.0",
-    "@babel/node": "^7.26.0",
-    "@babel/preset-env": "^7.26.0"
-  }
+    "name": "ggbanalytics",
+    "version": "1.1.0",
+    "description": "Trying to figure out how to gather data on GeoGebra interactions",
+    "main": "index.js",
+    "scripts": {
+        "start": "tsc && node server.js"
+    },
+    "author": "Kim Hager",
+    "license": "ISC",
+    "type": "module",
+    "dependencies": {
+        "@fastify/mongodb": "^9.0.2",
+        "body-parser": "^1.20.3",
+        "cors": "^2.8.5",
+        "express": "^4.21.2",
+        "fastify": "^5.3.3",
+        "fastify-plugin": "^5.0.1",
+        "mongoose": "^8.9.2",
+        "nodemon": "^3.1.9"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.26.4",
+        "@babel/core": "^7.26.0",
+        "@babel/node": "^7.26.0",
+        "@babel/preset-env": "^7.26.0",
+        "@types/node": "^22.15.21",
+        "typescript": "^5.8.3"
+    }
 }
+

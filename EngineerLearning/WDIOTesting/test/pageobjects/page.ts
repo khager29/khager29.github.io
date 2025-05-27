@@ -15,10 +15,28 @@ export default class Page {
         );
     }
 
-    public async findObjects() {
-        return await browser.execute(() => {
-            return (window as any).ggbApplet.getAllObjectNames();
-        });
+    public async findObjects(type?: string) {
+        return await browser.execute((objectType?: string) => {
+            return (window as any).ggbApplet.getAllObjectNames([objectType]);
+        }, type);
+    }
+
+    public async selectObject(selectedObject: string) {
+        await browser.execute((selected: string) => {
+            return (window as any).ggbApplet.evalCommand(
+                `SelectObjects(${selected})`
+            );
+        }, selectedObject);
+        browser.pause(3000);
+    }
+
+    public async pressKey(keyToPress: KeyboardEventInit) {
+        await browser.execute((key: KeyboardEventInit) => {
+            const element = document.querySelector("canvas");
+            const event = new KeyboardEvent("keyup", key);
+            element?.dispatchEvent(event);
+        }, keyToPress);
+        browser.pause(3000);
     }
 }
 
