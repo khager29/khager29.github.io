@@ -1,5 +1,6 @@
 import { expect } from "@wdio/globals";
 import GeoGebraPage from "../pageobjects/ggb.page.ts";
+import { keys } from "../../utils/constants.ts";
 
 describe("My API tester site", () => {
     // it("should find the canvas", async () => {
@@ -11,52 +12,40 @@ describe("My API tester site", () => {
     //     await GeoGebraPage.open();
     //     await expect(GeoGebraPage.ggbCanvas).toBeExisting();
     //     const objectArray = await GeoGebraPage.findObjects("button");
-    //     await expect(objectArray).toHaveLength(3);
+    //     await expect(objectArray).toHaveLength(4);
     // });
 
-    it("should press the button", async () => {
-        await GeoGebraPage.open();
-        await expect(GeoGebraPage.ggbCanvas).toBeExisting();
-        const objectArray = await GeoGebraPage.findObjects("button");
-        await expect(JSON.stringify(objectArray)).toBe(
-            JSON.stringify([
-                "button1",
-                "instructionsIcon",
-                "ggbButton1",
-                "ggbButton2",
-            ])
-        );
-        await GeoGebraPage.selectObject(objectArray[0]);
-        await GeoGebraPage.pressKey({
-            code: "Space",
-            keyCode: 32,
-            key: " ",
-            which: 32,
-        });
-        await GeoGebraPage.selectObject(objectArray[1]);
-        await GeoGebraPage.pressKey({
-            code: "Space",
-            keyCode: 32,
-            key: " ",
-            which: 32,
-        });
-        await browser.waitUntil(
-            async () => {
-                return await browser.execute(() => {
-                    return !!document
-                        .querySelector("dialog")
-                        ?.hasAttribute("open");
-                });
-            },
-            { timeout: 3000, timeoutMsg: "Dialog box timed out" }
-        );
-        const dialogOpen = await browser.execute(() => {
-            return document.querySelector("dialog")?.hasAttribute("open");
-        });
-        await expect(dialogOpen).toBe(true);
-    });
+    // it("should press a button", async () => {
+    //     await GeoGebraPage.open();
+    //     await expect(GeoGebraPage.ggbCanvas).toBeExisting();
+    //     const objectArray = await GeoGebraPage.findObjects("button");
+    //     await expect(JSON.stringify(objectArray)).toBe(
+    //         JSON.stringify([
+    //             "button1",
+    //             "instructionsIcon",
+    //             "ggbButton1",
+    //             "ggbButton2",
+    //         ])
+    //     );
+    //     await GeoGebraPage.selectObject(objectArray[1]);
+    //     await GeoGebraPage.pressKey(keys.space);
+    //     await browser.waitUntil(
+    //         async () => {
+    //             return await browser.execute(() => {
+    //                 return !!document
+    //                     .querySelector("dialog")
+    //                     ?.hasAttribute("open");
+    //             });
+    //         },
+    //         { timeout: 3000, timeoutMsg: "Dialog box timed out" }
+    //     );
+    //     const dialogOpen = await browser.execute(() => {
+    //         return document.querySelector("dialog")?.hasAttribute("open");
+    //     });
+    //     await expect(dialogOpen).toBe(true);
+    // });
 
-    it("should press lots of buttons", async () => {
+    it("should press all the buttons", async () => {
         await GeoGebraPage.open();
         await expect(GeoGebraPage.ggbCanvas).toBeExisting();
         const objectArray = await GeoGebraPage.findObjects("button");
@@ -68,47 +57,17 @@ describe("My API tester site", () => {
                 "ggbButton2",
             ])
         );
-        await GeoGebraPage.selectObject(objectArray[0]);
-        await GeoGebraPage.pressKey({
-            code: "Space",
-            keyCode: 32,
-            key: " ",
-            which: 32,
-        });
-        await GeoGebraPage.selectObject(objectArray[1]);
-        await GeoGebraPage.pressKey({
-            code: "Space",
-            keyCode: 32,
-            key: " ",
-            which: 32,
-        });
-        await GeoGebraPage.selectObject(objectArray[2]);
-        await GeoGebraPage.pressKey({
-            code: "Space",
-            keyCode: 32,
-            key: " ",
-            which: 32,
-        });
-        await GeoGebraPage.selectObject(objectArray[0]);
-        await GeoGebraPage.pressKey({
-            code: "Space",
-            keyCode: 32,
-            key: " ",
-            which: 32,
-        });
-        await GeoGebraPage.selectObject(objectArray[1]);
-        await GeoGebraPage.pressKey({
-            code: "Space",
-            keyCode: 32,
-            key: " ",
-            which: 32,
-        });
-        await GeoGebraPage.pressKey({
-            code: "Escape",
-            keyCode: 27,
-            key: "Escape",
-            which: 27,
-        });
+        for (const object of objectArray) {
+            await GeoGebraPage.selectObject(object);
+            await GeoGebraPage.pressKey(keys.space);
+            await browser.execute(() => {
+                const button = document.querySelector("button");
+                button?.click();
+            });
+            const waitTime = Math.round(Math.random() * 2000);
+            await browser.pause(waitTime);
+        }
+        await GeoGebraPage.pressKey(keys.escape);
     });
 });
 

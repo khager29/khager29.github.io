@@ -54,7 +54,7 @@ export const routes = async (fastify) => {
                         type: "string",
                     },
                     timeStart: {
-                        type: "number",
+                        type: "string",
                     },
                     timeInApplet: {
                         type: "number",

@@ -1,6 +1,6 @@
 function makeGetGGBAnalytics({ name, ggbObject, getCanvas }) {
     return function () {
-        const startTime = new Date.now();
+        const startTime = new Date(Date.now());
         const analyticsData = {
             materialID: "grqabgaq",
             usedKeyboardInstructions: false,
@@ -30,8 +30,7 @@ function makeGetGGBAnalytics({ name, ggbObject, getCanvas }) {
         ggbObject.registerClickListener(clickListenerFunction);
 
         function passData() {
-            analyticsData.timeInApplet =
-                (Date.now() - analyticsData.timeStart) / 1000;
+            analyticsData.timeInApplet = (Date.now() - startTime) / 1000;
             console.log("started data push");
             fetch("http://localhost:4200/logData", {
                 method: "POST",
