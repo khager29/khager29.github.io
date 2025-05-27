@@ -17,8 +17,11 @@ interface Body {
 }
 
 export const routes = async (fastify: FastifyInstance) => {
-    const collection = fastify.mongo.db?.collection("test_collection");
+    console.log("🛣️ Registering /logData route");
+    const db = fastify.mongo.client.db(process.env.DB_NAME);
+    const collection = db.collection("logData");
     if (!collection) {
+        throw new Error("no collection");
         return;
     }
 
@@ -102,15 +105,41 @@ export const routes = async (fastify: FastifyInstance) => {
 
     fastify.post(
         "/logData",
-        schema,
-        async (
-            req: FastifyRequest<{ Params: Params; Body: Body }>,
-            res: FastifyReply
-        ) => {
-            const result = await collection.insertOne(req.body);
-            return result;
+        async (req: FastifyRequest<{ Params: Params; Body: Body }>, reply) => {
+            console.log("📥 Incoming logData request");
+            const db = fastify.mongo.client.db(process.env.DB_NAME);
+            const collection = db.collection("logData");
+            if (!collection) {
+                console.error(
+                    "❌ Collection not available — check MongoDB connection"
+                );
+                return reply
+                    .code(500)
+                    .send({ error: "Database not connected" });
+            }
+
+            try {
+                const result = await collection.insertOne(req.body);
+                console.log("✅ Data inserted:", result.insertedId);
+                return reply.send({ insertedId: result.insertedId });
+            } catch (err) {
+                console.error("❌ Error inserting:", err);
+                return reply.code(500).send({ error: "Insert failed" });
+            }
         }
     );
+
+    // fastify.post(
+    //     "/logData",
+    //     schema,
+    //     async (
+    //         req: FastifyRequest<{ Params: Params; Body: Body }>,
+    //         res: FastifyReply
+    //     ) => {
+    //         const result = await collection.insertOne(req.body);
+    //         return result;
+    //     }
+    // );
 
     fastify.put(
         "/logData/:logDataId",

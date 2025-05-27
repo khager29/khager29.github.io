@@ -1,7 +1,10 @@
 import { ObjectId } from "@fastify/mongodb";
 export const routes = async (fastify) => {
-    const collection = fastify.mongo.db?.collection("test_collection");
+    console.log("🛣️ Registering /logData route");
+    const db = fastify.mongo.client.db(process.env.DB_NAME);
+    const collection = db.collection("logData");
     if (!collection) {
+        throw new Error("no collection");
         return;
     }
     fastify.get("/", async (req, res) => {
@@ -66,10 +69,37 @@ export const routes = async (fastify) => {
             },
         },
     };
-    fastify.post("/logData", schema, async (req, res) => {
-        const result = await collection.insertOne(req.body);
-        return result;
+    fastify.post("/logData", async (req, reply) => {
+        console.log("📥 Incoming logData request");
+        const db = fastify.mongo.client.db(process.env.DB_NAME);
+        const collection = db.collection("logData");
+        if (!collection) {
+            console.error("❌ Collection not available — check MongoDB connection");
+            return reply
+                .code(500)
+                .send({ error: "Database not connected" });
+        }
+        try {
+            const result = await collection.insertOne(req.body);
+            console.log("✅ Data inserted:", result.insertedId);
+            return reply.send({ insertedId: result.insertedId });
+        }
+        catch (err) {
+            console.error("❌ Error inserting:", err);
+            return reply.code(500).send({ error: "Insert failed" });
+        }
     });
+    // fastify.post(
+    //     "/logData",
+    //     schema,
+    //     async (
+    //         req: FastifyRequest<{ Params: Params; Body: Body }>,
+    //         res: FastifyReply
+    //     ) => {
+    //         const result = await collection.insertOne(req.body);
+    //         return result;
+    //     }
+    // );
     fastify.put("/logData/:logDataId", schema, async (req, res) => {
         const objectId = getID(req, res);
         const result = await collection.findOneAndUpdate({ _id: objectId }, { $set: req.body });

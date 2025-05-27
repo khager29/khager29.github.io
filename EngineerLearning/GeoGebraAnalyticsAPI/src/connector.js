@@ -1,8 +1,15 @@
 import fastifyPlugin from "fastify-plugin";
 import fastifyMongo from "@fastify/mongodb";
+import dotenv from "dotenv";
+dotenv.config();
+console.log("Loaded MONGO_URI from .env:", process.env.MONGO_URI);
 async function dbConnector(fastify) {
     fastify.register(fastifyMongo, {
-        url: "mongodb://localhost:27017/test_database",
+        forceClose: true,
+        url: process.env.MONGO_URI,
+    });
+    fastify.addHook("onReady", async () => {
+        console.log("🔗 MongoDB connection registered");
     });
 }
 export default fastifyPlugin(dbConnector);
