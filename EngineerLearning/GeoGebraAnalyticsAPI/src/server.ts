@@ -1,10 +1,14 @@
 import Fastify, { FastifyInstance } from "fastify";
 import dbConnector from "./connector.js";
-import { routes } from "../route.js";
+import { routes } from "./route.js";
+import fastifyCors from "@fastify/cors";
 
 const server: FastifyInstance = Fastify({ logger: true });
 server.register(dbConnector);
 server.register(routes);
+
+// I know this isn't a good idea, just for testing
+await server.register(fastifyCors, { origin: "*" });
 
 const start = async () => {
     try {

@@ -12,9 +12,13 @@ class GeoGebraPage extends Page {
         return $("canvas");
     }
 
-
     // open website
     public open() {
+        return super.open("GeoGebraAnalytics.html");
+    }
+
+    // open website in dev mode
+    public openDev() {
         return super.open("GeoGebraAnalytics.html");
     }
 }

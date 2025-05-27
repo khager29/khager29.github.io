@@ -3,7 +3,17 @@ import { ObjectId } from "@fastify/mongodb";
 
 interface Params {
     logDataId: string;
-    body: string;
+}
+
+interface Body {
+    materialID: string;
+    usedKeyboardInstructions: boolean;
+    usedArrows: boolean;
+    openedInstructions: boolean;
+    pressedButtons: number;
+    timeStart: number;
+    timeInApplet: number;
+    mouseUsed: boolean;
 }
 
 export const routes = async (fastify: FastifyInstance) => {
@@ -25,7 +35,7 @@ export const routes = async (fastify: FastifyInstance) => {
     });
 
     const getID = (
-        req: FastifyRequest<{ Params: Params }>,
+        req: FastifyRequest<{ Params: Params; Body: Body }>,
         res: FastifyReply
     ) => {
         const { logDataId } = req.params;
@@ -38,7 +48,10 @@ export const routes = async (fastify: FastifyInstance) => {
 
     fastify.get(
         "/logData/:logDataId",
-        async (req: FastifyRequest<{ Params: Params }>, res: FastifyReply) => {
+        async (
+            req: FastifyRequest<{ Params: Params; Body: Body }>,
+            res: FastifyReply
+        ) => {
             const objectId = getID(req, res);
             const result = await collection.findOne({ _id: objectId });
 
@@ -90,7 +103,10 @@ export const routes = async (fastify: FastifyInstance) => {
     fastify.post(
         "/logData",
         schema,
-        async (req: FastifyRequest<{ Params: Params }>, res: FastifyReply) => {
+        async (
+            req: FastifyRequest<{ Params: Params; Body: Body }>,
+            res: FastifyReply
+        ) => {
             const result = await collection.insertOne(req.body);
             return result;
         }
@@ -99,7 +115,10 @@ export const routes = async (fastify: FastifyInstance) => {
     fastify.put(
         "/logData/:logDataId",
         schema,
-        async (req: FastifyRequest<{ Params: Params }>, res: FastifyReply) => {
+        async (
+            req: FastifyRequest<{ Params: Params; Body: Body }>,
+            res: FastifyReply
+        ) => {
             const objectId = getID(req, res);
             const result = await collection.findOneAndUpdate(
                 { _id: objectId },
@@ -112,7 +131,10 @@ export const routes = async (fastify: FastifyInstance) => {
     fastify.delete(
         "/logData/:logDataId",
         schema,
-        async (req: FastifyRequest<{ Params: Params }>, res: FastifyReply) => {
+        async (
+            req: FastifyRequest<{ Params: Params; Body: Body }>,
+            res: FastifyReply
+        ) => {
             const objectId = getID(req, res);
             const result = await collection.findOneAndDelete({ _id: objectId });
             return result;
@@ -122,7 +144,10 @@ export const routes = async (fastify: FastifyInstance) => {
     fastify.delete(
         "/logData",
         schema,
-        async (req: FastifyRequest<{ Params: Params }>, res: FastifyReply) => {
+        async (
+            req: FastifyRequest<{ Params: Params; Body: Body }>,
+            res: FastifyReply
+        ) => {
             const result = await collection.deleteMany({});
             return result;
         }

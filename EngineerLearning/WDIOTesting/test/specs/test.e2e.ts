@@ -55,5 +55,60 @@ describe("My API tester site", () => {
         });
         await expect(dialogOpen).toBe(true);
     });
+
+    it("should press lots of buttons", async () => {
+        await GeoGebraPage.open();
+        await expect(GeoGebraPage.ggbCanvas).toBeExisting();
+        const objectArray = await GeoGebraPage.findObjects("button");
+        await expect(JSON.stringify(objectArray)).toBe(
+            JSON.stringify([
+                "button1",
+                "instructionsIcon",
+                "ggbButton1",
+                "ggbButton2",
+            ])
+        );
+        await GeoGebraPage.selectObject(objectArray[0]);
+        await GeoGebraPage.pressKey({
+            code: "Space",
+            keyCode: 32,
+            key: " ",
+            which: 32,
+        });
+        await GeoGebraPage.selectObject(objectArray[1]);
+        await GeoGebraPage.pressKey({
+            code: "Space",
+            keyCode: 32,
+            key: " ",
+            which: 32,
+        });
+        await GeoGebraPage.selectObject(objectArray[2]);
+        await GeoGebraPage.pressKey({
+            code: "Space",
+            keyCode: 32,
+            key: " ",
+            which: 32,
+        });
+        await GeoGebraPage.selectObject(objectArray[0]);
+        await GeoGebraPage.pressKey({
+            code: "Space",
+            keyCode: 32,
+            key: " ",
+            which: 32,
+        });
+        await GeoGebraPage.selectObject(objectArray[1]);
+        await GeoGebraPage.pressKey({
+            code: "Space",
+            keyCode: 32,
+            key: " ",
+            which: 32,
+        });
+        await GeoGebraPage.pressKey({
+            code: "Escape",
+            keyCode: 27,
+            key: "Escape",
+            which: 27,
+        });
+    });
 });
 

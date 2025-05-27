@@ -1,6 +1,9 @@
 import { ObjectId } from "@fastify/mongodb";
 export const routes = async (fastify) => {
-    const collection = fastify.mongo.db.collection("test_collection");
+    const collection = fastify.mongo.db?.collection("test_collection");
+    if (!collection) {
+        return;
+    }
     fastify.get("/", async (req, res) => {
         return { hello: "world" };
     });
@@ -23,40 +26,42 @@ export const routes = async (fastify) => {
         const objectId = getID(req, res);
         const result = await collection.findOne({ _id: objectId });
         if (!result) {
-            return res
-                .status(404)
-                .send({ error: `No document found with ID ${req.params.logDataId}` });
+            return res.status(404).send({
+                error: `No document found with ID ${req.params.logDataId}`,
+            });
         }
         return result;
     });
     const schema = {
-        body: {
-            type: "object",
-            required: ["materialID"],
-            properties: {
-                materialID: {
-                    type: "string",
-                },
-                usedKeyboardInstructions: {
-                    type: "boolean",
-                },
-                usedArrows: {
-                    type: "boolean",
-                },
-                openedInstructions: {
-                    type: "boolean",
-                },
-                pressedButtons: {
-                    type: "string",
-                },
-                timeStart: {
-                    type: "number",
-                },
-                timeInApplet: {
-                    type: "number",
-                },
-                mouseUsed: {
-                    type: "boolean",
+        schema: {
+            body: {
+                type: "object",
+                required: ["materialID"],
+                properties: {
+                    materialID: {
+                        type: "string",
+                    },
+                    usedKeyboardInstructions: {
+                        type: "boolean",
+                    },
+                    usedArrows: {
+                        type: "boolean",
+                    },
+                    openedInstructions: {
+                        type: "boolean",
+                    },
+                    pressedButtons: {
+                        type: "string",
+                    },
+                    timeStart: {
+                        type: "number",
+                    },
+                    timeInApplet: {
+                        type: "number",
+                    },
+                    mouseUsed: {
+                        type: "boolean",
+                    },
                 },
             },
         },
