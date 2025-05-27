@@ -1,4 +1,10 @@
 export const keys = {
+    k: {
+        code: "KeyK",
+        keyCode: 75,
+        key: "k",
+        which: 75,
+    },
     space: {
         code: "Space",
         keyCode: 32,

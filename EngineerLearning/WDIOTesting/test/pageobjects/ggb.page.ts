@@ -17,10 +17,6 @@ class GeoGebraPage extends Page {
         return super.open("GeoGebraAnalytics.html");
     }
 
-    // open website in dev mode
-    public openDev() {
-        return super.open("GeoGebraAnalytics.html");
-    }
 }
 
 export default new GeoGebraPage();

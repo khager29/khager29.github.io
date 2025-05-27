@@ -17,7 +17,10 @@ export default class Page {
 
     public async findObjects(type?: string) {
         return await browser.execute((objectType?: string) => {
-            return (window as any).ggbApplet.getAllObjectNames([objectType]);
+            if (objectType) {
+                return (window as any).ggbApplet.getAllObjectNames(objectType);
+            }
+            return (window as any).ggbApplet.getAllObjectNames();
         }, type);
     }
 
