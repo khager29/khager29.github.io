@@ -3101,7 +3101,8 @@
         preventCustomFocusIndicators = false,
         pointIncrements,
     }) {
-        const startTime = new Date(Date.now());
+        const timeStart = Date.now();
+        const startTime = new Date(timeStart);
         window.analyticsData = {
             materialID: "grqabgaq",
             usedKeyboardInstructions: false,
@@ -3109,7 +3110,7 @@
             openedInstructions: false,
             pressedButtons: "",
             mouseUsed: false,
-            timeStart: startTime,
+            timeStart,
             timeStartUTC: startTime.toUTCString(),
             timeInApplet: 0,
         };
