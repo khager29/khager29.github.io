@@ -12,7 +12,7 @@ async function dbConnector(fastify: FastifyInstance) {
     });
 
     fastify.addHook("onReady", async () => {
-        console.log("🔗 MongoDB connection registered");
+        console.log("MongoDB connected");
     });
 }
 

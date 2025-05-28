@@ -3306,7 +3306,7 @@
             body: JSON.stringify(analyticsData),
         })
             .then((res) => res.json())
-            .then((data) => console.log("Success:", data))
+            .then((data) => console.log("Data:", data))
             .catch((err) => console.error("Error:", err));
     }
 
