@@ -91,6 +91,9 @@ export const routes = async (fastify: FastifyInstance) => {
                     timeStart: {
                         type: "string",
                     },
+                    timeStartUTC: {
+                        type: "string",
+                    },
                     timeInApplet: {
                         type: "number",
                     },
@@ -104,6 +107,7 @@ export const routes = async (fastify: FastifyInstance) => {
 
     fastify.post(
         "/logData",
+        schema,
         async (req: FastifyRequest<{ Params: Params; Body: Body }>, reply) => {
             const db = fastify.mongo.client.db(process.env.DB_NAME);
             const collection = db.collection("logData");
