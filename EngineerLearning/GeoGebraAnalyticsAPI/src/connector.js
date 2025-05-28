@@ -9,7 +9,7 @@ async function dbConnector(fastify) {
         url: process.env.MONGO_URI,
     });
     fastify.addHook("onReady", async () => {
-        console.log("🔗 MongoDB connection registered");
+        console.log("MongoDB connected");
     });
 }
 export default fastifyPlugin(dbConnector);
