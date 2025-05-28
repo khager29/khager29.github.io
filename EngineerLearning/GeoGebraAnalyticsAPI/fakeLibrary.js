@@ -3109,7 +3109,8 @@
             openedInstructions: false,
             pressedButtons: "",
             mouseUsed: false,
-            timeStart: startTime.toUTCString(),
+            timeStart: startTime,
+            timeStartUTC: startTime.toUTCString(),
             timeInApplet: 0,
         };
 
