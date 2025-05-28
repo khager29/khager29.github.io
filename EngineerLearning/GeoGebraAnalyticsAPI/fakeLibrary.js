@@ -3293,22 +3293,22 @@
         return returnObj;
     }
 
-    // utils/src/getDocument.js
-    function passData() {
-        window.analyticsData.timeInApplet =
-            (Date.now() - window.analyticsData.timeStart) / 1000;
-        console.log("started data push");
-        fetch("http://localhost:3000/api/GeoGebra", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(window.analyticsData),
-        })
-            .then((res) => res.json())
-            .then((data) => console.log("Data:", data))
-            .catch((err) => console.error("Error:", err));
-    }
+    // utils/src/passData.js
+    // function passData() {
+    //     window.analyticsData.timeInApplet =
+    //         (Date.now() - window.analyticsData.timeStart) / 1000;
+    //     console.log("started data push");
+    //     fetch("http://localhost:3000/api/GeoGebra", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(window.analyticsData),
+    //     })
+    //         .then((res) => res.json())
+    //         .then((data) => console.log("Data:", data))
+    //         .catch((err) => console.error("Error:", err));
+    // }
 
     // utils/src/getDocument.js
     function getDocument_default() {
