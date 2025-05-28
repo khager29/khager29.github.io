@@ -1965,7 +1965,7 @@
                     break;
                 }
                 case "Escape": {
-                    passData();
+                    // passData();
                     break;
                 }
                 default: {
@@ -3145,7 +3145,7 @@
                         });
                     }
                 }
-                element.addEventListener("mouseleave", passData);
+                // element.addEventListener("mouseleave", passData);
             });
 
             ggbObject.setErrorDialogsActive(false);
