@@ -3296,7 +3296,7 @@
     // utils/src/getDocument.js
     function passData() {
         window.analyticsData.timeInApplet =
-            (Date.now() - window.analyticsData.startTime) / 1000;
+            (Date.now() - window.analyticsData.timeStart) / 1000;
         console.log("started data push");
         fetch("http://localhost:4200/logData", {
             method: "POST",

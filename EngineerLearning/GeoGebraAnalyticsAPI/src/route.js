@@ -1,6 +1,5 @@
 import { ObjectId } from "@fastify/mongodb";
 export const routes = async (fastify) => {
-    console.log("🛣️ Registering /logData route");
     const db = fastify.mongo.client.db(process.env.DB_NAME);
     const collection = db.collection("logData");
     if (!collection) {
@@ -69,20 +68,23 @@ export const routes = async (fastify) => {
             },
         },
     };
-    fastify.post("/logData", schema, async (req, res) => {
+    fastify.post("/logData", async (req, reply) => {
         const db = fastify.mongo.client.db(process.env.DB_NAME);
         const collection = db.collection("logData");
         if (!collection) {
-            console.error("collection not found");
-            return res.code(500).send({ error: "Database not connected" });
+            console.error("Collection not available");
+            return reply
+                .code(500)
+                .send({ error: "Database not connected" });
         }
         try {
             const result = await collection.insertOne(req.body);
-            return res.send({ insertedId: result.insertedId });
+            console.log("Data inserted:", result.insertedId);
+            return reply.send({ insertedId: result.insertedId });
         }
-        catch (error) {
-            console.error(`Error: ${error}`);
-            return res.code(500).send({ error: "Data insert failed" });
+        catch (err) {
+            console.error("Error inserting:", err);
+            return reply.code(500).send({ error: "Insert failed" });
         }
     });
     fastify.put("/logData/:logDataId", schema, async (req, res) => {
