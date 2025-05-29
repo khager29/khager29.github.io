@@ -167,10 +167,6 @@ button:focus {
     color: white;
 }
 
-label {
-    margin-top: 20px;
-}
-
 input {
     min-height: 10px;
 }
@@ -201,6 +197,9 @@ a {
 
 .radio {
     font-size: medium;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .hidden {
