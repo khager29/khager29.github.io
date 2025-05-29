@@ -172,7 +172,7 @@ label {
 }
 
 input {
-    min-height: 32px;
+    min-height: 10px;
 }
 
 ul {
@@ -180,6 +180,7 @@ ul {
 }
 
 li {
+    list-style-type: circle;
     color: var(--navy-blue);
     padding: 2px;
 }
@@ -187,8 +188,37 @@ li {
 a {
     color: var(--navy-blue);
 }
+.choices {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio {
+    font-size: medium;
+}
 
 .hidden {
     display: none;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(20, 10px);
+    grid-template-rows: repeat(1, 10px);
+    gap: 10px;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--smokey-white);
+    border: 2px solid var(--smokey-white);
 }
 
