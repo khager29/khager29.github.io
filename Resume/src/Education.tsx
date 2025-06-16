@@ -1,7 +1,8 @@
-import { data, DataProps } from "./assets/resumeData";
+import { useData } from "./DataContext";
 import { DataList } from "./DataList";
 
-export const Education = (data: DataProps) => {
+export const Education = () => {
+    const data = useData();
     if (!data) {
         return null;
     }
@@ -11,15 +12,11 @@ export const Education = (data: DataProps) => {
             <div className="flex flex-row m-1">
                 <div className="flex flex-col">
                     <h3>College</h3>
-                    <DataList data={data} info={"education"} type="college" />
+                    <DataList info={"education"} type="college" />
                 </div>
                 <div className="flex flex-col">
                     <h3>Graduate School</h3>
-                    <DataList
-                        data={data}
-                        info={"education"}
-                        type="gradSchool"
-                    />
+                    <DataList info={"education"} type="gradSchool" />
                 </div>
             </div>
         </>

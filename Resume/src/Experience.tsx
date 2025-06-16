@@ -1,18 +1,34 @@
-import { data } from "./assets/resumeData";
+import { useData } from "./DataContext";
 import { DataList } from "./DataList";
 
 export const Experience = ({}) => {
+    const data = useData();
+    if (!data) {
+        return null;
+    }
+    const { workExperience } = data;
     return (
         <>
-            <h2>Education</h2>
+            <h2>Experience</h2>
             <div className="flex flex-row m-1">
                 <div className="flex flex-col">
-                    <h3>College</h3>
-                    <DataList info="workExperience" type="college" />
-                </div>
-                <div className="flex flex-col">
-                    <h3>Graduate School</h3>
-                    <DataList info="workExperience" type="gradSchool" />
+                    {Object.keys(workExperience).map((jobName) => (
+                        <>
+                            <h3>{workExperience[jobName].company}</h3>
+                            <h4>{workExperience[jobName].title}</h4>
+                            <div className="flex flex-col">
+                                <p>{workExperience[jobName].location}</p>
+                                <p>{`${workExperience[jobName].startDate} to ${workExperience[jobName].endDate}`}</p>
+                            </div>
+                            <ul className="flex flex-col items-start">
+                                {workExperience[jobName].responsibilities.map(
+                                    (responsibility) => (
+                                        <li>{responsibility}</li>
+                                    )
+                                )}
+                            </ul>
+                        </>
+                    ))}
                 </div>
             </div>
         </>

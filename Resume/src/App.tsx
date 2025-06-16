@@ -1,20 +1,24 @@
 import "./App.css";
 import { Education } from "./Education";
 import { Header } from "./Header";
-import { DataLoader } from "./DataLoader";
-import { data } from "./assets/resumeData";
+import { Wrapper } from "./Wrapper";
+import { DataProvider } from "./DataProvider";
+import { Experience } from "./Experience";
 
 function App() {
     return (
         <>
-            <DataLoader data={data}>
-                <header className="flex flex-col">
+            <DataProvider>
+                <Wrapper tag="header" className="flex flex-col">
                     <Header />
-                </header>
-                <main className="flex flex-col">
+                </Wrapper>
+                <Wrapper className="flex flex-col">
                     <Education />
-                </main>
-            </DataLoader>
+                </Wrapper>
+                <Wrapper className="flex flex-col">
+                    <Experience />
+                </Wrapper>
+            </DataProvider>
         </>
     );
 }

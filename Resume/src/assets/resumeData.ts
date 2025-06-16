@@ -31,11 +31,14 @@ export interface ContactInfoProps {
     cityState: string;
 }
 
+export interface SkillsProps {}
+export interface ProjectProps {}
+
 export interface DataProps {
     education: EducationProps;
     workExperience: WorkExperienceProps;
-    skills: {};
-    projects: {};
+    skills: SkillsProps;
+    projects: ProjectProps;
     contactInfo: ContactInfoProps;
 }
 
