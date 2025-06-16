@@ -1,37 +1,42 @@
-interface DataProps {
-    education: {
-        [key: string]: {
-            major: string;
-            minor?: string;
-            gpa: string;
-            honors?: string;
-            school: string;
-            startDate: string;
-            endDate: string;
-            location: string;
-        };
+export interface EducationProps {
+    [key: string]: {
+        major: string;
+        minor?: string;
+        gpa: string;
+        honors?: string;
+        school: string;
+        startDate: string;
+        endDate: string;
+        location: string;
     };
-    workExperience: {
-        [key: string]: {
-            company: string;
-            title: string;
-            location: string;
-            startDate: string;
-            endDate: string;
-            responsibilities: string[];
-        };
+}
+export interface WorkExperienceProps {
+    [key: string]: {
+        company: string;
+        title: string;
+        location: string;
+        startDate: string;
+        endDate: string;
+        responsibilities: string[];
     };
+}
+
+export interface ContactInfoProps {
+    name: string;
+    phone: string;
+    email: string;
+    linkedIn: string;
+    address: string;
+    street: string;
+    cityState: string;
+}
+
+export interface DataProps {
+    education: EducationProps;
+    workExperience: WorkExperienceProps;
     skills: {};
     projects: {};
-    contactInfo: {
-        name: string;
-        phone: string;
-        email: string;
-        linkedIn: string;
-        address: string;
-        street: string;
-        cityState: string;
-    };
+    contactInfo: ContactInfoProps;
 }
 
 export const data: DataProps = {

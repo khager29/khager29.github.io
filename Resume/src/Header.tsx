@@ -1,8 +1,10 @@
-import { data } from "./assets/resumeData";
+import { DataProps } from "./assets/resumeData";
 
-export const Header = () => {
+export const Header: React.FC<DataProps> = (data) => {
     const { contactInfo } = data;
-
+    if (!contactInfo) {
+        return null;
+    }
     return (
         <>
             <h1>{contactInfo.name}</h1>
