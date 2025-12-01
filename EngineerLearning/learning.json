@@ -1,0 +1,129 @@
+{
+    "courses": [
+        {
+            "courseName": "Introduction to Observability",
+            "learningProvider": "New Relic University",
+            "href": "https://learn.newrelic.com/introduction-to-observability",
+            "completionDate": "2024-Nov-11"
+        },
+        {
+            "courseName": "Introduction to Performance Monitoring",
+            "learningProvider": "New Relic University",
+            "href": "https://learn.newrelic.com/introduction-to-performance-monitoring",
+            "completionDate": "2024-Nov-11"
+        },
+        {
+            "courseName": "Introduction to the Platform",
+            "learningProvider": "New Relic University",
+            "href": "https://learn.newrelic.com/introduction-to-the-platform",
+            "completionDate": "2024-Nov-11"
+        },
+        {
+            "courseName": "Getting Started with AWS Storage",
+            "learningProvider": "AWS Skillbuilder",
+            "href": "https://skillbuilder.aws/learn/WQTG8AM8XJ/getting-started-with-aws-storage/8TFAVSP8TE",
+            "completionDate": "2025-Sept-9"
+        },
+        {
+            "courseName": "Introduction to Containers",
+            "learningProvider": "AWS Skillbuilder",
+            "href": "https://skillbuilder.aws/learn/CUCA1DK47V/introduction-to-containers/XJ58VC1FF5?parentId=BT3ARXRZY3",
+            "completionDate": "current"
+        },
+        {
+            "courseName": "Learning Amazon Web Services Lambda",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/learning-amazon-web-services-lambda-22774748",
+            "completionDate": "current"
+        },
+        {
+            "courseName": "GitHub Actions for CI/CD",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/github-actions-for-ci-cd",
+            "completionDate": "2025-Sept-24"
+        },
+        {
+            "courseName": "Advanced Google Analytics 4 (GA4)",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/advanced-google-analytics-4-ga4-24005729",
+            "completionDate": "2025-June-13"
+        },
+        {
+            "courseName": "Learning Google Tag Manager",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/learning-google-tag-manager-24301088",
+            "completionDate": "2025-June-2"
+        },
+        {
+            "courseName": "Google Analytics 4 (GA4) Essential Training",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/google-analytics-4-ga4-essential-training-14915362",
+            "completionDate": "2025-May-30"
+        },
+        {
+            "courseName": "Building RESTful APIs with Node.js and Express",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/building-restful-apis-with-node-js-and-express-16069959",
+            "completionDate": "2024-Dec-23"
+        },
+        {
+            "courseName": "Introduction to Web APIs",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/introduction-to-web-apis-22019269",
+            "completionDate": "2024-Dec-23"
+        },
+        {
+            "courseName": "Designing RESTful APIs",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/learning-rest-apis",
+            "completionDate": "2024-Dec-20"
+        },
+        {
+            "courseName": "Express Essentials: Build Powerful Web Apps with Node.js",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/express-essentials-build-powerful-web-apps-with-node-js",
+            "completionDate": "2024-Nov-27"
+        },
+        {
+            "courseName": "Node.js: Testing and Code Quality",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/node-js-testing-and-code-quality-14003857",
+            "completionDate": "2024-Nov-26"
+        },
+        {
+            "courseName": "TypeScript Essential Training",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/typescript-essential-training-14687057",
+            "completionDate": "2024-Aug-30"
+        },
+        {
+            "courseName": "Node.js: Web Servers, Tests, and Deployment",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/node-js-web-servers-tests-and-deployment",
+            "completionDate": "2024-Aug-30"
+        },
+        {
+            "courseName": "JavaScript: Classes",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/javascript-classes-19958382",
+            "completionDate": "2024-July-29"
+        },
+        {
+            "courseName": "Node.js Essential Training",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/node-js-essential-training-14888164",
+            "completionDate": "2024-June-6"
+        },
+        {
+            "courseName": "PostgreSQL Essential Training",
+            "learningProvider": "LinkedIn Learning",
+            "href": "https://www.linkedin.com/learning/postgresql-essential-training-22611610",
+            "completionDate": "2024-Apr-11"
+        }
+    ],
+    "projects": {
+        "projectName": "",
+        "href": "",
+        "completionDate": ""
+    }
+}
